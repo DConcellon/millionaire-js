@@ -24834,21 +24834,7 @@ var Menu = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'container menuContainer' },
-
-        _react2.default.createElement('p', { className: 'intro' }, ''),
-        _react2.default.createElement('p', { className: 'intro' }, ''),
-        _react2.default.createElement('p', { className: 'intro' }, 'Welcome to the game of "Who Wants to Be a Millionaire? - Classroom Edition" (presented by Telšiai "Džiugas" gymnasium). There is some important information teachers should be aware of.'),
-
-        _react2.default.createElement('p', { className: 'intro' }, 'ESSENTIAL RULES :: (1) Students will play in pairs, (2) as you will see, there are different "sets" for every pair. MAKE SURE THESE DO NOT REPEAT, otherwise the questions will be the same. (3) The game should be shown for all the class to see, like on the show itself. Turn on your projector and we recommend that you have your speakers turned on, too. (4) It is highly recommended that you go full screen by pressing the F11 key at the top of your keyboard. Once you are done, you can hit F11 again. (5) We recommend choosing the Test Set before continuing — check to see if all the questions can be read clearly and the game works properly. You can use the Ctrl, then the plus and minus keys to change the size of elements on the page.'),
-
-        _react2.default.createElement('p', { className: 'intro' }, 'THINGS TO KNOW :: (6) You can use one lifeline once per game, (5) there is 50/50 (which removes 2 wrong answers) and Double Chance (marked x2) which gives students the chance to answer twice. Both lifelines can be used on one question, BUT (7) the questions should get harder the more you play, so make sure to save those lifelines. More time will be added to the clock as you play. (8) You will need to refresh the page after one pair is done with the game and bring out another pair of students.'),
-
-        _react2.default.createElement('p', { className: 'intro' }, 'THAT IS ALL! :: We hope you enjoy this game. Make sure to take some pictures (or video, if you would like). A lot of effort was put into making this game by the students. Most importantly of all, have fun!'),
-
-        //_react2.default.createElement('a', { className: 'menuButton', href: 'https://github.com/mistermantas/millionaire-js/tree/eday' }, 'Start Game')
-        //_react2.default.createElement(_MenuButton2.default, { source: '/bestscores', text: 'Best scores' }),
-        //_react2.default.createElement(_MenuButton2.default, { source: '/options', text: 'Options' })
-
+        _react2.default.createElement('p', { className: 'intro' }, 'LETS PLAY'),
         _react2.default.createElement(_MenuButton2.default, { source: '/game', text: 'Open the Game' })
       );
     }
@@ -27316,22 +27302,8 @@ var Game = function (_React$Component) {
     };
 
     _this.getQuestion = function () {
-		if (_this.state.name === 'x') {
-			var baseUrl = 'https://opentdb.com/api.php?amount=1&category=22&type=multiple';
-		} else {
-			var baseUrl = 'https://teachersdaytdg19.000webhostapp.com/eday.php?question=' + _data2.default.difficulty[_this.state.scores] + '&set=' + _this.state.name;
-		}
-      fetch(baseUrl).then(function (data) {
-        if (data.ok) {
-          return data.json();
-        } else {
-          throw new Error('Error getting data');
-        }
-      }).then(function (data) {
-        _this.insertQuestion(data);
-      }).catch(function (error) {
-        console.log(error);
-      });
+      const sample = require('./sample.json'); 
+      _this.insertQuestion(sample);
     };
 
     _this.handleNameChange = function (event) {
